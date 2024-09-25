@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class DatabaseConnection {
-    private String url = "jdbc:mysql://localhost:3306/login_app";
-    private String user = "root"; // altere se necessário
-    private String password ="12345"; // altere se necessário
+    private String url = System.getenv("DB_URL");
+    private String user = System.getenv("DB_USER");
+    private String password = System.getenv("DB_PASSWORD");
 
     public boolean validateUser(String username, String password) {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
